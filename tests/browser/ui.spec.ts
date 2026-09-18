@@ -1,0 +1,62 @@
+import { test, expect } from '@playwright/test'
+import { mkdir, writeFile } from 'node:fs/promises'
+import { fixture } from './fixture'
+
+test('welcome and connected timeline screenshots', async ({ page }, testInfo) => {
+  const errors: string[] = []; page.on('pageerror', error => errors.push(error.message))
+  await fixture(page, false)
+  await page.goto('/')
+  await expect(page.getByRole('heading', { name: 'Your communities, woven together.' })).toBeVisible()
+  const directory = process.env.WEAVE_CAPTURE_DIR ?? 'artifacts/visual/current'
+  await mkdir(directory, { recursive: true })
+  await page.screenshot({ path: `${directory}/${testInfo.project.name}-welcome.png`, fullPage: true })
+  await page.evaluate(() => sessionStorage.setItem('weave.session', JSON.stringify({ origin: 'https://social.example.org', token: 'fixture-token', client_id: 'fixture-app', client_secret: 'fixture-secret', scopes: 'read write:statuses write:favourites write:follows write:media write:bookmarks write:mutes write:blocks write:accounts write:filters' })))
+  await page.reload()
+  await expect(page.locator('.status-card').first()).toBeVisible()
+  await page.screenshot({ path: `${directory}/${testInfo.project.name}-timeline.png`, fullPage: true })
+  await page.screenshot({ path: `${directory}/${testInfo.project.name}-viewport.png` })
+  await writeFile(`${directory}/${testInfo.project.name}-layout.json`, JSON.stringify({ viewport: page.viewportSize(), composer: await page.locator('.post-composer').first().boundingBox(), firstPost: await page.locator('.status-card').first().boundingBox() }, null, 2))
+  expect(errors).toEqual([])
+})
+
+test('post options and secondary navigation remain usable on narrow screens', async ({ page }, testInfo) => {
+  if (testInfo.project.name === 'mobile') await page.setViewportSize({ width: 320, height: 740 })
+  await fixture(page)
+  await page.goto('/')
+  await expect(page.locator('.status-card').first()).toBeVisible()
+  await page.locator('.composer-options summary').first().click()
+  await expect(page.getByLabel('Content warning (optional)', { exact: true })).toBeVisible()
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
+  if (testInfo.project.name === 'mobile') await page.getByRole('button', { name: 'More', exact: true }).click()
+  await page.getByRole('button', { name: 'Preferences', exact: true }).click()
+  await expect(page.getByRole('heading', { name: 'Preferences', exact: true, level: 2 })).toBeVisible()
+  await expect(page.getByLabel('Display name', { exact: true })).toHaveValue('Alex Morgan')
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
+  const directory = process.env.WEAVE_CAPTURE_DIR ?? 'artifacts/visual/current'
+  await mkdir(directory, { recursive: true })
+  await page.screenshot({ path: `${directory}/${testInfo.project.name}-preferences.png`, fullPage: true })
+})
+
+test('navigation, localized drafts, and interactions work in the browser', async ({ page }) => {
+  const errors: string[] = []; page.on('pageerror', error => errors.push(error.message))
+  await fixture(page)
+  await page.goto('/')
+  await expect(page.locator('.status-card').first()).toBeVisible()
+  const draft = page.locator('.draft-input').first()
+  await draft.fill('A draft that should stay here.')
+  await page.getByLabel('Language', { exact: true }).selectOption('zh-CN')
+  await expect(draft).toHaveValue('A draft that should stay here.')
+  await page.getByLabel('语言', { exact: true }).selectOption('en')
+  await page.getByRole('button', { name: 'Favourite', exact: true }).first().click()
+  await expect(page.getByRole('button', { name: 'Undo favourite', exact: true }).first()).toHaveAttribute('aria-pressed', 'true')
+  await page.getByRole('button', { name: 'Search', exact: true }).click()
+  await page.getByPlaceholder('A name, handle, post URL, or hashtag').fill('maya')
+  await page.locator('form').filter({ has: page.getByPlaceholder('A name, handle, post URL, or hashtag') }).getByRole('button', { name: 'Search', exact: true }).click()
+  await expect(page.getByRole('button', { name: /Maya Chen ·/ })).toBeVisible()
+  await page.getByRole('button', { name: /Maya Chen ·/ }).click()
+  await expect(page.getByText('Designing useful things. Walking the long way home.')).toBeVisible()
+  await page.getByRole('button', { name: 'Following', exact: true }).click()
+  await expect(draft).toHaveValue('A draft that should stay here.')
+  expect(errors).toEqual([])
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
+})

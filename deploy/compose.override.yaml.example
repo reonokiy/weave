@@ -1,0 +1,6 @@
+# Merge this into the existing GoToSocial Compose project.
+# Keep its existing environment, command, ports, volumes, and proxy configuration.
+# The service key must match your existing service name.
+services:
+  gotosocial:
+    image: weave-gotosocial:0.22.1

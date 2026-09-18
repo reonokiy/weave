@@ -1,0 +1,17 @@
+# Add INSIDE your existing GoToSocial HTTPS server block.
+# Build: pnpm build --base=/weave/
+# Copy the CONTENTS of dist/ into /srv/weave/.
+# Preserve your existing GoToSocial location / and proxy configuration.
+
+location = /weave {
+    return 308 /weave/;
+}
+
+location ^~ /weave/ {
+    root /srv;
+    index index.html;
+    try_files $uri $uri/ /weave/index.html;
+    add_header Referrer-Policy "no-referrer" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header Cache-Control "no-cache";
+}

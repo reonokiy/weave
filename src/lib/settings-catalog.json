@@ -1,0 +1,2941 @@
+[
+  {
+    "route": "/settings/user/profile",
+    "title": "profile",
+    "role": "user",
+    "operations": [
+      {
+        "key": "accountUpdate",
+        "method": "PATCH",
+        "path": "/api/v1/accounts/update_credentials",
+        "fields": [
+          {
+            "name": "discoverable",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "indexable",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "bot",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "display_name",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "note",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "avatar",
+            "in": "formData",
+            "type": "file"
+          },
+          {
+            "name": "avatar_description",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "header",
+            "in": "formData",
+            "type": "file"
+          },
+          {
+            "name": "header_description",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "locked",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "source[privacy]",
+            "in": "formData",
+            "type": "string",
+            "enum": [
+              "public",
+              "unlisted",
+              "private",
+              "direct"
+            ]
+          },
+          {
+            "name": "source[sensitive]",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "source[language]",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "source[status_content_type]",
+            "in": "formData",
+            "type": "string",
+            "enum": [
+              "text/plain",
+              "text/markdown"
+            ]
+          },
+          {
+            "name": "theme",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "custom_css",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "enable_rss",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "hide_collections",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "web_visibility",
+            "in": "formData",
+            "type": "string",
+            "enum": [
+              "public",
+              "unlisted",
+              "none"
+            ]
+          },
+          {
+            "name": "web_layout",
+            "in": "formData",
+            "type": "string",
+            "enum": [
+              "microblog",
+              "gallery"
+            ]
+          },
+          {
+            "name": "web_include_boosts",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "fields_attributes[0][name]",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "fields_attributes[0][value]",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "fields_attributes[1][name]",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "fields_attributes[1][value]",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "fields_attributes[2][name]",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "fields_attributes[2][value]",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "fields_attributes[3][name]",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "fields_attributes[3][value]",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "fields_attributes[4][name]",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "fields_attributes[4][value]",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "fields_attributes[5][name]",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "fields_attributes[5][value]",
+            "in": "formData",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "accountAvatarDelete",
+        "method": "DELETE",
+        "path": "/api/v1/profile/avatar",
+        "fields": [],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "accountHeaderDelete",
+        "method": "DELETE",
+        "path": "/api/v1/profile/header",
+        "fields": [],
+        "produces": [
+          "application/json"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/settings/user/migration",
+    "title": "migration",
+    "role": "user",
+    "operations": [
+      {
+        "key": "accountAlias",
+        "method": "POST",
+        "path": "/api/v1/accounts/alias",
+        "fields": [
+          {
+            "name": "also_known_as_uris",
+            "in": "body",
+            "type": "array"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "accountMove",
+        "method": "POST",
+        "path": "/api/v1/accounts/move",
+        "fields": [
+          {
+            "name": "password",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "moved_to_uri",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/settings/user/export-import",
+    "title": "dataTransfer",
+    "role": "user",
+    "operations": [
+      {
+        "key": "exportBlocks",
+        "method": "GET",
+        "path": "/api/v1/exports/blocks.csv",
+        "fields": [],
+        "produces": [
+          "text/csv"
+        ]
+      },
+      {
+        "key": "exportFollowers",
+        "method": "GET",
+        "path": "/api/v1/exports/followers.csv",
+        "fields": [],
+        "produces": [
+          "text/csv"
+        ]
+      },
+      {
+        "key": "exportFollowing",
+        "method": "GET",
+        "path": "/api/v1/exports/following.csv",
+        "fields": [],
+        "produces": [
+          "text/csv"
+        ]
+      },
+      {
+        "key": "exportLists",
+        "method": "GET",
+        "path": "/api/v1/exports/lists.csv",
+        "fields": [],
+        "produces": [
+          "text/csv"
+        ]
+      },
+      {
+        "key": "exportMutes",
+        "method": "GET",
+        "path": "/api/v1/exports/mutes.csv",
+        "fields": [],
+        "produces": [
+          "text/csv"
+        ]
+      },
+      {
+        "key": "exportStats",
+        "method": "GET",
+        "path": "/api/v1/exports/stats",
+        "fields": [],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "importData",
+        "method": "POST",
+        "path": "/api/v1/import",
+        "fields": [
+          {
+            "name": "data",
+            "in": "formData",
+            "type": "file",
+            "required": true
+          },
+          {
+            "name": "type",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "mode",
+            "in": "formData",
+            "type": "string",
+            "default": "merge",
+            "enum": [
+              "merge",
+              "overwrite"
+            ]
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/settings/user/tokens",
+    "title": "accessTokens",
+    "role": "user",
+    "operations": [
+      {
+        "key": "tokensInfoGet",
+        "method": "GET",
+        "path": "/api/v1/tokens",
+        "fields": [
+          {
+            "name": "order",
+            "in": "query",
+            "type": "string",
+            "default": "last_used"
+          },
+          {
+            "name": "max_id",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "since_id",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "min_id",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "integer",
+            "default": 20
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "tokenInfoGet",
+        "method": "GET",
+        "path": "/api/v1/tokens/{id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "tokenUpdatePut",
+        "method": "PUT",
+        "path": "/api/v1/tokens/{id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "tokenInvalidatePost",
+        "method": "POST",
+        "path": "/api/v1/tokens/{id}/invalidate",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/settings/user/applications",
+    "title": "applications",
+    "role": "user",
+    "operations": [
+      {
+        "key": "appsGet",
+        "method": "GET",
+        "path": "/api/v1/apps",
+        "fields": [
+          {
+            "name": "max_id",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "since_id",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "min_id",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "integer",
+            "default": 20
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "appCreate",
+        "method": "POST",
+        "path": "/api/v1/apps",
+        "fields": [
+          {
+            "name": "client_name",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "redirect_uris",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "scopes",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "website",
+            "in": "formData",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "appDelete",
+        "method": "DELETE",
+        "path": "/api/v1/apps/{id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "appGet",
+        "method": "GET",
+        "path": "/api/v1/apps/{id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/settings/user/relay-pushes",
+    "title": "relayPushes",
+    "role": "user",
+    "operations": [
+      {
+        "key": "relayPushes",
+        "method": "GET",
+        "path": "/api/v1/relay_pushes",
+        "fields": [],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "relayPushCreate",
+        "method": "POST",
+        "path": "/api/v1/relay_pushes",
+        "fields": [
+          {
+            "name": "relay_actor_uri",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "public",
+            "in": "formData",
+            "type": "boolean",
+            "default": true
+          },
+          {
+            "name": "unlisted",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "match_by_default",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "ignore_sensitive",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "ignore_media",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "ignore_replies",
+            "in": "formData",
+            "type": "boolean"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "relayPushDelete",
+        "method": "DELETE",
+        "path": "/api/v1/relay_pushes/{id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "relayPushGet",
+        "method": "GET",
+        "path": "/api/v1/relay_pushes/{id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "relayPushUpdate",
+        "method": "PUT",
+        "path": "/api/v1/relay_pushes/{id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "public",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "unlisted",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "match_by_default",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "ignore_sensitive",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "ignore_media",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "ignore_replies",
+            "in": "formData",
+            "type": "boolean"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "relayPushMatcherPost",
+        "method": "POST",
+        "path": "/api/v1/relay_pushes/{id}/matchers",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "keyword",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "whole_word",
+            "in": "formData",
+            "type": "boolean",
+            "default": false
+          },
+          {
+            "name": "exclude",
+            "in": "formData",
+            "type": "boolean",
+            "default": false
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "relayPushMatcherDelete",
+        "method": "DELETE",
+        "path": "/api/v1/relay_pushes/{id}/matchers/{matcher_id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "matcher_id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "relayPushMatcherPut",
+        "method": "PUT",
+        "path": "/api/v1/relay_pushes/{id}/matchers/{matcher_id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "matcher_id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "keyword",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "whole_word",
+            "in": "formData",
+            "type": "boolean",
+            "default": false
+          },
+          {
+            "name": "exclude",
+            "in": "formData",
+            "type": "boolean",
+            "default": false
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/settings/moderation/accounts",
+    "title": "accounts",
+    "role": "moderator",
+    "operations": [
+      {
+        "key": "adminAccountGet",
+        "method": "GET",
+        "path": "/api/v1/admin/accounts/{id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "adminAccountAction",
+        "method": "POST",
+        "path": "/api/v1/admin/accounts/{id}/action",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "type",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "text",
+            "in": "formData",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "adminAccountApprove",
+        "method": "POST",
+        "path": "/api/v1/admin/accounts/{id}/approve",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "adminAccountReject",
+        "method": "POST",
+        "path": "/api/v1/admin/accounts/{id}/reject",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "private_comment",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "message",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "send_email",
+            "in": "formData",
+            "type": "boolean"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "adminAccountsGetV2",
+        "method": "GET",
+        "path": "/api/v2/admin/accounts",
+        "fields": [
+          {
+            "name": "origin",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "permissions",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "role_ids[]",
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "invited_by",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "username",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "display_name",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "by_domain",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "ip",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "max_id",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "min_id",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 200,
+            "default": 50
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/settings/moderation/reports",
+    "title": "reports",
+    "role": "moderator",
+    "operations": [
+      {
+        "key": "adminReports",
+        "method": "GET",
+        "path": "/api/v1/admin/reports",
+        "fields": [
+          {
+            "name": "resolved",
+            "in": "query",
+            "type": "boolean"
+          },
+          {
+            "name": "unresolved",
+            "in": "query",
+            "type": "boolean"
+          },
+          {
+            "name": "account_id",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "target_account_id",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "max_id",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "since_id",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "min_id",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 20
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "adminReportGet",
+        "method": "GET",
+        "path": "/api/v1/admin/reports/{id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "adminReportResolve",
+        "method": "POST",
+        "path": "/api/v1/admin/reports/{id}/resolve",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "action_taken_comment",
+            "in": "formData",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/settings/moderation/domain-limits",
+    "title": "domainLimits",
+    "role": "moderator",
+    "operations": [
+      {
+        "key": "domainLimitsGet",
+        "method": "GET",
+        "path": "/api/v1/admin/domain_limits",
+        "fields": [
+          {
+            "name": "max_id",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "since_id",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "min_id",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100,
+            "default": 20
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "domainLimitCreate",
+        "method": "POST",
+        "path": "/api/v1/admin/domain_limits",
+        "fields": [
+          {
+            "name": "domain",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "media_policy",
+            "in": "formData",
+            "type": "string",
+            "enum": [
+              "no_action",
+              "mark_sensitive",
+              "reject"
+            ],
+            "default": "no_action"
+          },
+          {
+            "name": "follows_policy",
+            "in": "formData",
+            "type": "string",
+            "enum": [
+              "no_action",
+              "manual_approval",
+              "reject_non_mutual",
+              "reject_all"
+            ],
+            "default": "no_action"
+          },
+          {
+            "name": "statuses_policy",
+            "in": "formData",
+            "type": "string",
+            "enum": [
+              "no_action",
+              "filter_warn",
+              "filter_hide"
+            ],
+            "default": "no_action"
+          },
+          {
+            "name": "accounts_policy",
+            "in": "formData",
+            "type": "string",
+            "enum": [
+              "no_action",
+              "mute"
+            ],
+            "default": "no_action"
+          },
+          {
+            "name": "content_warning",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "public_comment",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "private_comment",
+            "in": "formData",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "domainLimitDelete",
+        "method": "DELETE",
+        "path": "/api/v1/admin/domain_limits/{id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "domainLimitUpdate",
+        "method": "PUT",
+        "path": "/api/v1/admin/domain_limits/{id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "media_policy",
+            "in": "formData",
+            "type": "string",
+            "enum": [
+              "no_action",
+              "mark_sensitive",
+              "reject"
+            ]
+          },
+          {
+            "name": "follows_policy",
+            "in": "formData",
+            "type": "string",
+            "enum": [
+              "no_action",
+              "manual_approval",
+              "reject_non_mutual",
+              "reject_all"
+            ]
+          },
+          {
+            "name": "statuses_policy",
+            "in": "formData",
+            "type": "string",
+            "enum": [
+              "no_action",
+              "filter_warn",
+              "filter_hide"
+            ]
+          },
+          {
+            "name": "accounts_policy",
+            "in": "formData",
+            "type": "string",
+            "enum": [
+              "no_action",
+              "mute"
+            ],
+            "default": "no_action"
+          },
+          {
+            "name": "content_warning",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "public_comment",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "private_comment",
+            "in": "formData",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/settings/moderation/domain-permissions/blocks",
+    "title": "domainBlocks",
+    "role": "moderator",
+    "operations": [
+      {
+        "key": "domainBlocksGet",
+        "method": "GET",
+        "path": "/api/v1/admin/domain_blocks",
+        "fields": [
+          {
+            "name": "export",
+            "in": "query",
+            "type": "boolean"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "domainBlockCreate",
+        "method": "POST",
+        "path": "/api/v1/admin/domain_blocks",
+        "fields": [
+          {
+            "name": "import",
+            "in": "query",
+            "type": "boolean",
+            "default": false
+          },
+          {
+            "name": "domains",
+            "in": "formData",
+            "type": "file"
+          },
+          {
+            "name": "domain",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "obfuscate",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "public_comment",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "private_comment",
+            "in": "formData",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "domainBlockDelete",
+        "method": "DELETE",
+        "path": "/api/v1/admin/domain_blocks/{id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "domainBlockGet",
+        "method": "GET",
+        "path": "/api/v1/admin/domain_blocks/{id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "domainBlockUpdate",
+        "method": "PUT",
+        "path": "/api/v1/admin/domain_blocks/{id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "obfuscate",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "public_comment",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "private_comment",
+            "in": "formData",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/settings/moderation/domain-permissions/allows",
+    "title": "domainAllows",
+    "role": "moderator",
+    "operations": [
+      {
+        "key": "domainAllowsGet",
+        "method": "GET",
+        "path": "/api/v1/admin/domain_allows",
+        "fields": [
+          {
+            "name": "export",
+            "in": "query",
+            "type": "boolean"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "domainAllowCreate",
+        "method": "POST",
+        "path": "/api/v1/admin/domain_allows",
+        "fields": [
+          {
+            "name": "import",
+            "in": "query",
+            "type": "boolean",
+            "default": false
+          },
+          {
+            "name": "domains",
+            "in": "formData",
+            "type": "file"
+          },
+          {
+            "name": "domain",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "obfuscate",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "public_comment",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "private_comment",
+            "in": "formData",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "domainAllowDelete",
+        "method": "DELETE",
+        "path": "/api/v1/admin/domain_allows/{id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "domainAllowGet",
+        "method": "GET",
+        "path": "/api/v1/admin/domain_allows/{id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "domainAllowUpdate",
+        "method": "PUT",
+        "path": "/api/v1/admin/domain_allows/{id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "obfuscate",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "public_comment",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "private_comment",
+            "in": "formData",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/settings/moderation/domain-permissions/drafts",
+    "title": "permissionDrafts",
+    "role": "moderator",
+    "operations": [
+      {
+        "key": "domainPermissionDraftsGet",
+        "method": "GET",
+        "path": "/api/v1/admin/domain_permission_drafts",
+        "fields": [
+          {
+            "name": "subscription_id",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "domain",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "permission_type",
+            "in": "query",
+            "type": "string",
+            "enum": [
+              "block",
+              "allow"
+            ]
+          },
+          {
+            "name": "max_id",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "since_id",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "min_id",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 20
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "domainPermissionDraftCreate",
+        "method": "POST",
+        "path": "/api/v1/admin/domain_permission_drafts",
+        "fields": [
+          {
+            "name": "domain",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "permission_type",
+            "in": "formData",
+            "type": "string",
+            "enum": [
+              "block",
+              "allow"
+            ]
+          },
+          {
+            "name": "obfuscate",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "public_comment",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "private_comment",
+            "in": "formData",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "domainPermissionDraftGet",
+        "method": "GET",
+        "path": "/api/v1/admin/domain_permission_drafts/{id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "domainPermissionDraftAccept",
+        "method": "POST",
+        "path": "/api/v1/admin/domain_permission_drafts/{id}/accept",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "overwrite",
+            "in": "formData",
+            "type": "boolean",
+            "default": false
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "domainPermissionDraftRemove",
+        "method": "POST",
+        "path": "/api/v1/admin/domain_permission_drafts/{id}/remove",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "exclude_target",
+            "in": "formData",
+            "type": "boolean",
+            "default": false
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/settings/moderation/domain-permissions/excludes",
+    "title": "permissionExcludes",
+    "role": "moderator",
+    "operations": [
+      {
+        "key": "domainPermissionExcludesGet",
+        "method": "GET",
+        "path": "/api/v1/admin/domain_permission_excludes",
+        "fields": [
+          {
+            "name": "domain",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "max_id",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "since_id",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "min_id",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 20
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "domainPermissionExcludeCreate",
+        "method": "POST",
+        "path": "/api/v1/admin/domain_permission_excludes",
+        "fields": [
+          {
+            "name": "domain",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "private_comment",
+            "in": "formData",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "domainPermissionExcludeDelete",
+        "method": "DELETE",
+        "path": "/api/v1/admin/domain_permission_excludes/{id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "domainPermissionExcludeGet",
+        "method": "GET",
+        "path": "/api/v1/admin/domain_permission_excludes/{id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/settings/moderation/domain-permissions/subscriptions",
+    "title": "permissionSubscriptions",
+    "role": "moderator",
+    "operations": [
+      {
+        "key": "domainPermissionSubscriptionsGet",
+        "method": "GET",
+        "path": "/api/v1/admin/domain_permission_subscriptions",
+        "fields": [
+          {
+            "name": "permission_type",
+            "in": "query",
+            "type": "string",
+            "enum": [
+              "block",
+              "allow"
+            ]
+          },
+          {
+            "name": "max_id",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "since_id",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "min_id",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 20
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "domainPermissionSubscriptionCreate",
+        "method": "POST",
+        "path": "/api/v1/admin/domain_permission_subscriptions",
+        "fields": [
+          {
+            "name": "priority",
+            "in": "formData",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 255,
+            "default": 0
+          },
+          {
+            "name": "title",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "permission_type",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "enum": [
+              "block",
+              "allow"
+            ]
+          },
+          {
+            "name": "as_draft",
+            "in": "formData",
+            "type": "boolean",
+            "default": true
+          },
+          {
+            "name": "adopt_orphans",
+            "in": "formData",
+            "type": "boolean",
+            "default": false
+          },
+          {
+            "name": "remove_retracted",
+            "in": "formData",
+            "type": "boolean",
+            "default": true
+          },
+          {
+            "name": "uri",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "content_type",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "fetch_username",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "fetch_password",
+            "in": "formData",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "domainPermissionSubscriptionUpdate",
+        "method": "PATCH",
+        "path": "/api/v1/admin/domain_permission_subscriptions/{id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "priority",
+            "in": "formData",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 255
+          },
+          {
+            "name": "title",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "uri",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "as_draft",
+            "in": "formData",
+            "type": "boolean",
+            "default": true
+          },
+          {
+            "name": "adopt_orphans",
+            "in": "formData",
+            "type": "boolean",
+            "default": false
+          },
+          {
+            "name": "remove_retracted",
+            "in": "formData",
+            "type": "boolean",
+            "default": true
+          },
+          {
+            "name": "content_type",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "fetch_username",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "fetch_password",
+            "in": "formData",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "domainPermissionSubscriptionGet",
+        "method": "GET",
+        "path": "/api/v1/admin/domain_permission_subscriptions/{id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "domainPermissionSubscriptionRemove",
+        "method": "POST",
+        "path": "/api/v1/admin/domain_permission_subscriptions/{id}/remove",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "remove_children",
+            "in": "formData",
+            "type": "boolean",
+            "default": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "domainPermissionSubscriptionTest",
+        "method": "POST",
+        "path": "/api/v1/admin/domain_permission_subscriptions/{id}/test",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "domainPermissionSubscriptionsPreviewGet",
+        "method": "GET",
+        "path": "/api/v1/admin/domain_permission_subscriptions/preview",
+        "fields": [
+          {
+            "name": "permission_type",
+            "in": "query",
+            "type": "string",
+            "required": true,
+            "enum": [
+              "block",
+              "allow"
+            ]
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/settings/admin/instance/settings",
+    "title": "instanceSettings",
+    "role": "admin",
+    "operations": [
+      {
+        "key": "instanceUpdate",
+        "method": "PATCH",
+        "path": "/api/v1/instance",
+        "fields": [
+          {
+            "name": "title",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "contact_username",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "contact_email",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "short_description",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "terms",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "thumbnail",
+            "in": "formData",
+            "type": "file"
+          },
+          {
+            "name": "thumbnail_description",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "header",
+            "in": "formData",
+            "type": "file"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/settings/admin/instance/rules",
+    "title": "instanceRules",
+    "role": "admin",
+    "operations": [
+      {
+        "key": "adminsRuleGet",
+        "method": "GET",
+        "path": "/api/v1/admin/instance/rules",
+        "fields": [],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "ruleCreate",
+        "method": "POST",
+        "path": "/api/v1/admin/instance/rules",
+        "fields": [
+          {
+            "name": "text",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "ruleDelete",
+        "method": "DELETE",
+        "path": "/api/v1/admin/instance/rules/{id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "adminRuleGet",
+        "method": "GET",
+        "path": "/api/v1/admin/instance/rules/{id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "ruleUpdate",
+        "method": "PATCH",
+        "path": "/api/v1/admin/instance/rules/{id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "text",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/settings/admin/instances",
+    "title": "knownInstances",
+    "role": "admin",
+    "operations": [
+      {
+        "key": "adminInstances",
+        "method": "GET",
+        "path": "/api/v1/admin/instances",
+        "fields": [
+          {
+            "name": "domain",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "type": "string",
+            "default": "first_seen"
+          },
+          {
+            "name": "with_errors_only",
+            "in": "query",
+            "type": "boolean",
+            "default": false
+          },
+          {
+            "name": "max_id",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "since_id",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "min_id",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 40
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "adminInstanceGet",
+        "method": "GET",
+        "path": "/api/v1/admin/instances/{id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "adminInstanceClearDeliveryErrors",
+        "method": "POST",
+        "path": "/api/v1/admin/instances/{id}/clear_delivery_errors",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/settings/admin/emoji/local",
+    "title": "customEmoji",
+    "role": "admin",
+    "operations": [
+      {
+        "key": "emojisGet",
+        "method": "GET",
+        "path": "/api/v1/admin/custom_emojis",
+        "fields": [
+          {
+            "name": "filter",
+            "in": "query",
+            "type": "string",
+            "default": "domain:all"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 200,
+            "default": 50
+          },
+          {
+            "name": "max_shortcode_domain",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "min_shortcode_domain",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "emojiCreate",
+        "method": "POST",
+        "path": "/api/v1/admin/custom_emojis",
+        "fields": [
+          {
+            "name": "shortcode",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "image",
+            "in": "formData",
+            "type": "file",
+            "required": true
+          },
+          {
+            "name": "category",
+            "in": "formData",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "emojiDelete",
+        "method": "DELETE",
+        "path": "/api/v1/admin/custom_emojis/{id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "emojiGet",
+        "method": "GET",
+        "path": "/api/v1/admin/custom_emojis/{id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "emojiUpdate",
+        "method": "PATCH",
+        "path": "/api/v1/admin/custom_emojis/{id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "type",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "enum": [
+              "copy",
+              "disable",
+              "modify"
+            ]
+          },
+          {
+            "name": "shortcode",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "image",
+            "in": "formData",
+            "type": "file"
+          },
+          {
+            "name": "category",
+            "in": "formData",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "emojiCategoriesGet",
+        "method": "GET",
+        "path": "/api/v1/admin/custom_emojis/categories",
+        "fields": [],
+        "produces": [
+          "application/json"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/settings/admin/http-header-permissions/blocks",
+    "title": "headerBlocks",
+    "role": "admin",
+    "operations": [
+      {
+        "key": "headerFilterBlocksGet",
+        "method": "GET",
+        "path": "/api/v1/admin/header_blocks",
+        "fields": [],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "headerFilterBlockCreate",
+        "method": "POST",
+        "path": "/api/v1/admin/header_blocks",
+        "fields": [
+          {
+            "name": "header",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "regex",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "headerFilterBlockDelete",
+        "method": "DELETE",
+        "path": "/api/v1/admin/header_blocks/{id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "headerFilterBlockGet",
+        "method": "GET",
+        "path": "/api/v1/admin/header_blocks/{id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/settings/admin/http-header-permissions/allows",
+    "title": "headerAllows",
+    "role": "admin",
+    "operations": [
+      {
+        "key": "headerFilterAllowsGet",
+        "method": "GET",
+        "path": "/api/v1/admin/header_allows",
+        "fields": [],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "headerFilterAllowCreate",
+        "method": "POST",
+        "path": "/api/v1/admin/header_allows",
+        "fields": [
+          {
+            "name": "header",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "regex",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "headerFilterAllowDelete",
+        "method": "DELETE",
+        "path": "/api/v1/admin/header_allows/{id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "headerFilterAllowGet",
+        "method": "GET",
+        "path": "/api/v1/admin/header_allows/{id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/settings/admin/relay-subscriptions",
+    "title": "relaySubscriptions",
+    "role": "admin",
+    "operations": [
+      {
+        "key": "adminRelaySubscriptions",
+        "method": "GET",
+        "path": "/api/v1/admin/relay_subscriptions",
+        "fields": [],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "relaySubscriptionCreate",
+        "method": "POST",
+        "path": "/api/v1/admin/relay_subscriptions",
+        "fields": [
+          {
+            "name": "relay_actor_uri",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "public",
+            "in": "formData",
+            "type": "boolean",
+            "default": true
+          },
+          {
+            "name": "unlisted",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "match_by_default",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "ignore_sensitive",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "ignore_media",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "ignore_replies",
+            "in": "formData",
+            "type": "boolean"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "adminRelaySubscriptionDelete",
+        "method": "DELETE",
+        "path": "/api/v1/admin/relay_subscriptions/{id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "adminRelaySubscriptionGet",
+        "method": "GET",
+        "path": "/api/v1/admin/relay_subscriptions/{id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "relaySubscriptionUpdate",
+        "method": "PUT",
+        "path": "/api/v1/admin/relay_subscriptions/{id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "public",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "unlisted",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "match_by_default",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "ignore_sensitive",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "ignore_media",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "ignore_replies",
+            "in": "formData",
+            "type": "boolean"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "relaySubscriptionMatcherPost",
+        "method": "POST",
+        "path": "/api/v1/admin/relay_subscriptions/{id}/matchers",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "keyword",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "whole_word",
+            "in": "formData",
+            "type": "boolean",
+            "default": false
+          },
+          {
+            "name": "exclude",
+            "in": "formData",
+            "type": "boolean",
+            "default": false
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "relaySubscriptionMatcherDelete",
+        "method": "DELETE",
+        "path": "/api/v1/admin/relay_subscriptions/{id}/matchers/{matcher_id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "matcher_id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "relaySubscriptionMatcherPut",
+        "method": "PUT",
+        "path": "/api/v1/admin/relay_subscriptions/{id}/matchers/{matcher_id}",
+        "fields": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "matcher_id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "keyword",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "whole_word",
+            "in": "formData",
+            "type": "boolean",
+            "default": false
+          },
+          {
+            "name": "exclude",
+            "in": "formData",
+            "type": "boolean",
+            "default": false
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/settings/admin/actions/email",
+    "title": "testEmail",
+    "role": "admin",
+    "operations": [
+      {
+        "key": "testEmailSend",
+        "method": "POST",
+        "path": "/api/v1/admin/email/test",
+        "fields": [
+          {
+            "name": "email",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "message",
+            "in": "formData",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/settings/admin/actions/media",
+    "title": "mediaMaintenance",
+    "role": "admin",
+    "operations": [
+      {
+        "key": "mediaCleanup",
+        "method": "POST",
+        "path": "/api/v1/admin/media_cleanup",
+        "fields": [
+          {
+            "name": "remote_cache_days",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "mediaPurge",
+        "method": "POST",
+        "path": "/api/v1/admin/media_purge",
+        "fields": [
+          {
+            "name": "domain",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      {
+        "key": "mediaRefetch",
+        "method": "POST",
+        "path": "/api/v1/admin/media_refetch",
+        "fields": [
+          {
+            "name": "domain",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/settings/admin/actions/keys",
+    "title": "expireKeys",
+    "role": "admin",
+    "operations": [
+      {
+        "key": "domainKeysExpire",
+        "method": "POST",
+        "path": "/api/v1/admin/domain_keys_expire",
+        "fields": [
+          {
+            "name": "domain",
+            "in": "formData",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/settings/admin/debug/apurl",
+    "title": "inspectFederation",
+    "role": "admin",
+    "operations": [
+      {
+        "key": "apURL",
+        "method": "GET",
+        "path": "/api/v1/debug/apurl",
+        "fields": [
+          {
+            "name": "url",
+            "in": "query",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/settings/admin/debug/caches",
+    "title": "clearCaches",
+    "role": "admin",
+    "operations": [
+      {
+        "key": "clearCaches",
+        "method": "POST",
+        "path": "/api/v1/debug/caches/clear",
+        "fields": [],
+        "produces": [
+          "application/json"
+        ]
+      }
+    ]
+  }
+]

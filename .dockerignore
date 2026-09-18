@@ -1,0 +1,11 @@
+node_modules
+dist
+artifacts
+coverage
+test-results
+.git
+.env*
+playwright-report
+.agents
+.codex
+*.log
